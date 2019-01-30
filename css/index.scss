@@ -1,0 +1,327 @@
+$main-color : #352f2f;
+$main-white:#fff;
+$main-yellow: #bd7f1c;
+$main-nav-color:#4a4444;
+$main-head-color:#363638;
+$main-paragraph-color:#816943;
+$main-bc1-color:#f1ede4;
+$mian-bc2-color:#eae4d8;
+$main-bc3-color:#574d41;
+$main-paragraph2-color:#A3A3A3;
+//================================
+//media query
+$MaxMobil : 768px;
+$MaxSmall : 991px;
+
+//=====================================================================
+$main-font:Arial,
+Helvetica,
+sans-serif;
+$main-font2:'Open Sans',
+sans-serif;
+
+* {
+    transition: all .5s;
+}
+
+body {
+    height: 2000px;
+    ;
+}
+
+//===================================
+.btn-yellow {
+    background-color: $main-yellow;
+    color: $main-white;
+    cursor: pointer;
+    border: none;
+
+    &:hover {
+        color: $main-white;
+        background-color: $main-head-color;
+    }
+}
+
+.btn-white {
+    background-color: $main-white;
+    color: $main-yellow;
+    cursor: pointer;
+    border: none;
+
+    &:hover {
+        color: $main-white;
+        background-color: $main-yellow;
+    }
+}
+
+//===================================
+
+@mixin iconpop()
+{
+    position: absolute;
+    font-size: 2rem;
+    cursor: pointer;
+    color: $main-color;
+    transition: all .4s;
+    &:hover
+    {
+      color:$main-yellow ;
+    }
+}
+
+//===================================
+
+.home {
+    background-color: $main-color;
+    border-bottom: 2px solid $main-yellow;
+
+    .social-icon {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+        a {
+            margin: 0 .4rem;
+        }
+
+        a:nth-child(1) {
+            color: #3c5b9b;
+        }
+
+        a:nth-child(2) {
+            color: #2daae1;
+        }
+
+        a:nth-child(3) {
+            color: red;
+        }
+    }
+
+    .my-nav {
+        background-color: $main-nav-color;
+
+        nav {
+            ul {
+                list-style: none;
+                display: flex;
+                align-items: center;
+
+                li {
+                    border-left: 1px solid #3D3D3D;
+
+                    a {
+                        display: inline-block;
+                        padding: 1.2rem 1.2rem;
+                        color: $main-white;
+                        text-decoration: none;
+
+                        &:hover {
+                            background-color: $main-yellow;
+                        }
+                    }
+
+                    .active {
+                        background-color: $main-yellow;
+                    }
+                }
+            }
+        }
+
+        .search {
+            justify-content: flex-end;
+        }
+    }
+
+}
+
+.services {
+    background-color: $main-bc1-color;
+
+    .service {
+        @media (max-width: $MaxMobil), (max-width:$MaxMobil) {
+            margin-top: 1rem;
+        }
+
+        border-top:4px solid $main-yellow;
+        font-family: $main-font2;
+        background-color: $mian-bc2-color;
+        box-shadow: 0px 56px 36px -60px #121D12;
+        margin-top: -7rem;
+
+        i {
+            color: $main-yellow;
+        }
+
+        h5 {
+            color: $main-head-color;
+            font-size: 16px;
+            margin: 1rem 0
+        }
+
+        p {
+            color: $main-paragraph-color;
+            font-size: 14px;
+        }
+    }
+
+    @media (max-width:$MaxMobil) {
+        padding: 1rem 0 !important;
+    }
+}
+
+#oursite {
+    background-color: $mian-bc2-color;
+
+    h1 {
+        color: $main-color;
+        font-size: 1.5rem;
+    }
+
+    h5 {
+        color: $main-yellow;
+    }
+
+    p {
+        color: $main-paragraph-color;
+    }
+}
+
+#aboutrestorant {
+    background-color: $main-bc1-color;
+
+    h2 {
+
+        color: $main-paragraph-color;
+        font-size: 2rem;
+        font-weight: 400;
+        border-bottom: .5px solid $mian-bc2-color;
+    }
+
+    h6 {
+        color: $main-yellow;
+        font-size: 1.3rem;
+        font-weight: 300;
+    }
+
+    p {
+        color: $main-paragraph-color;
+    }
+
+    .info-icon {
+        text-decoration: none;
+        font-size: .97rem;
+        color: $main-paragraph-color;
+
+        &:hover {
+            color: $main-yellow;
+        }
+
+    }
+
+    i {
+        font-size: .7rem;
+        color: $main-yellow;
+    }
+
+    .img-slide {
+        img {
+            cursor: pointer;
+        }
+    }
+}
+
+.website-info {
+    background-color: $main-bc3-color;
+
+    h4 {
+        color: $main-white;
+        font-size: 1.3rem;
+        font-weight: 300;
+    }
+
+    p {
+        color: $main-paragraph2-color;
+    }
+
+    .info-item {
+        a {
+            text-decoration: none;
+            color: $main-paragraph2-color;
+            border-bottom: 1px ridge rgba(192, 192, 192, 0.13);
+            display: block;
+
+            &:hover {
+                color: $main-white;
+            }
+        }
+    }
+}
+
+footer {
+    background-color: $main-color;
+    color: $main-white;
+}
+
+
+//start pop up
+
+@mixin display($display)
+{
+    display: $display;
+}
+
+.popup-container
+{
+    @include display(none);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0,0,0,.5);
+    
+    .popup
+    {
+        position: relative;
+        #close
+        {
+            @include iconpop();
+            top: 3px;
+            right: 3px;
+        }
+        #right
+        {
+            @include iconpop();
+            top: 50%;
+            right: 3px;
+        }
+        #left
+        {
+            @include iconpop();
+            top: 50%;
+            left: 3px;
+        }
+        
+    }
+    
+    .popup-img
+    {
+        background-image: url(../images/slider1.jpg);
+        background-size: 100% 100%;
+        height: 600px;
+        @media (max-width:$MaxMobil)
+        {
+            height: 400px;
+        }
+    }
+}
+
+
+
+
+//End pop up
+
+
+
+
+//==================================================
